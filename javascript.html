@@ -1,0 +1,115 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>  
+    <title></title>  
+    <meta charset="utf-8" />  
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-ico" href="../images/logo.jpg"> 
+     <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+   
+    <style type="text/css">  
+        *{margin:0;padding:0;}
+        html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%适应整个屏幕*/  
+        .bg {display: table;width: 100%;height: 100%;padding: 100px 0;text-align: center;color: #fff;background: url(../images/background.png) repeat bottom center;background-color: #000;/*background-size: cover;*/}  
+        .my-navbar {padding:20px 0;transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;}  
+        .my-navbar a{background:transparent !important;color:#fff !important ;font-size:20px;}  
+        .my-navbar a:hover {color:#45bcf9 !important;background:transparent;outline:0;font-size:22px;}  
+
+        .my-navbar a {transition: color 0.5s ease-in-out;}/*-webkit-transition ;-moz-transition*/  
+        .top-nav {padding:0;background:#000;}  
+        button.navbar-toggle {background-color:#fbfbfb;}/*整个背景都是transparent透明的，会看不到，所以再次覆盖一下*/  
+        button.navbar-toggle > span.icon-bar {background-color:#dedede}
+        .list{margin-left:40px;}  
+        .list li{padding-left:30px;}
+        .logo img{width:50px;height:56px;margin-left:200px;margin-top:-20px;}
+        .content li{color:#000;display:block;height:32px;line-height:32px;}
+        .content li:hover{background-color:#ccc;color:#000;}
+        .active{background-color:#778cf3;color:#000;}
+    </style> 
+    <script>
+        window.onload=function(){
+            var aUl=document.getElementById('content');
+            var aLi=document.getElementByTagName('li');
+            aLi.onclick=function () {
+                for( var i=0;i<aLi.length;i++){
+                aLi[i].className="";   
+                }
+                this.className="active";
+            }
+
+           
+        }
+    </script> 
+</head>  
+<body>  
+    <nav class="navbar navbar-fixed-top my-navbar" role="navigation">  
+        <div class="container-fluid">  
+            <div class="navbar-header"> 
+               <!--  <a href="index.html" class="navbar-brand logo"><img src="../images/logo.jpg" alt="慕城千雪"></a> -->
+               <span class="navbar-brand logo"><img src="../images/logo.jpg" alt="慕城千雪"></span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse"  
+                        data-target="#example-navbar-collapse">  
+                    <!-- <span class="sr-only">切换导航</span>  
+                    <span class="icon-bar"></span>  
+                    <span class="icon-bar"></span>  
+                    <span class="icon-bar"></span>  --> 
+                </button>  
+                <a class="navbar-brand" href="index.html">慕城千雪</a>  
+            </div>  
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">  
+               <ul class="nav navbar-nav list">  
+                    <li class="a"><a href="html5.html">HTML5</a></li>  
+                    <li><a href="css3.html">CSS3</a></li>  
+                    <li>  
+                        <a href="javascript.html">javascript</a>  
+                    </li> 
+                    <li>  
+                        <a href="jquery.html">jQuery</a>  
+                    </li>
+                    <li>  
+                        <a href="bootscrap.html">Bootscrap</a>  
+                    </li>
+                    <li>  
+                        <a href="vue.html">Vue</a>  
+                    </li> 
+                </ul>    
+            </div>  
+        </div>  
+    </nav> 
+    <div class="bg">
+        <div class="container"> 
+            <div class="row">
+                <div class="col-md-3 left" style="border-right:1px #ccc solid;">
+                <ul class="" style="list-style:none;margin-left: -120px; margin-top:20px;">
+                    <li class="">目录</li>
+                </ul>
+                <ul class="content" id="content" style="list-style:none; margin-left: -300px;">
+                    <li class="#javascriptOne active" >javascript简介</li>
+                    <li class="">目录</li>
+                    <li class="">目录</li>
+                    <li class="">目录</li>
+                    <li class="">目录</li>
+                    <li class="">目录</li>
+                </ul>  
+            </div>
+                <div class="col-md-7 right">
+                <h4 style="text-align:left;margin-top:20px;padding:0 0 20px 20px;" id="javascriptOne">javascript简介</h4>
+                <hr style="border:none;border-top:1px #ccc solid;margin-left:30px;">
+                <p>aaaaa</p></div>
+            </div>
+        </div>
+        <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/><br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/><br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/><br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>aaa
+    </div> 
+  
+     
+    <script>  
+        $(window).scroll(function () {  
+            if ($(".navbar").offset().top > 50) {$(".navbar-fixed-top").addClass("top-nav");  
+            }else {$(".navbar-fixed-top").removeClass("top-nav");}  
+        })</script>  
+</body></html>  
