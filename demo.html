@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="1022.css">
+    <style type="text/css">
+        body,div{margin:0;padding:0px;text-align: center;}
+        #cav{
+            border:2px solid black;
+            border-radius: 4px;
+            box-shadow: 0px 0px 10px black;
+            -webkit-box-shadow:0px 0px 10px black;
+            -moz-box-shadow:0px 0px 10px black;
+        }
+        #bk{
+            margin:0px auto;
+            width:400px;
+            height: 36px;
+        }
+        .bk{
+            text-align: center;
+            width:20px;
+            height: 20px;
+            margin:12px;
+            display: inline-block;
+            border:1px dotted gray;
+    
+        }
+    </style>
+</head>
+<body>
+    <h1>this is my webpage!</h1>
+    <div id="bk" align="center"></div>
+    <canvas id="cav" width="400px" height="300px"></canvas>
+    <!-- <canvas width="500px" height="600px">
+        this is canvas!
+        1.html5初探
+            1.1canvas画布元素
+            canvas可通过硬件加速，完成像素级别的图像渲染，
+            包括2D图形渲染和3D图形渲染。
+            1.2 多媒体元素
+                video和audio元素，不用安装插件就可以完成影音的播放，减少浏览器的污染程度。
+            1.3地理信息服务api
+            1.4 本地储存服务，相对于传统的cookie微量储存，提供了更安全更大量的本地储存方案。
+            1.5 websocket通信
+            1.6 离线储存
+            1.7 多线程
+            1.8 设备 device元素  适配 pc,手机，平板
+            html5应用程序可以在主流浏览器（IE，chrome，Firefox，opera，safari）中执行，
+
+        
+        2.canvas
+         2.1 基本知识
+         2.2 图形api
+         2.3 图像api
+         2.4 坐标变换
+         2.5 绘制文字
+         2.6 其他全局属性
+         2.7 案例：你画我猜 
+         2.8 小结
+        3.多媒体元素
+         3.1 多媒体基本知识
+         3.2 使用多媒体元素
+         3.3 案例：本地音乐播放器
+         3.4 音频处理高级技巧
+         3.5 小结
+        4.制作2D游戏引擎
+        5.网络通信基础
+        6.游戏常用算法
+        7.Box2D引擎和物理游戏
+        8.使用css3开发游戏
+        9.编程实战之太空战机
+        10.编程实战之你画我猜
+        11.编程实战之疯狂的小鸟
+    </canvas> -->
+    <script src="jquery.min.js"></script>
+    <script>
+        //定义画笔颜色
+        var bColor=["#000","#999","#c6f","#f00","#f90","#ff0","#080","#0cf"];
+        //当前画笔颜色
+        var clo="#f00";
+        function initBrush(){
+            for(var i=0;i<bColor.length;i++){
+                var bk=$("<span class='bk'></span>").css("background-color",bColor[i]).click(function(){
+                    col=$(this).css("background-color")
+                });
+                $("#bk").append(bk)
+            }
+        }
+        function initPainter(){
+            //绑定绘制canvas
+            var can=$("#cav"),self=this,x=0,y=0;
+            var ctx=can[0].getContext("2d");
+            ctx.lineWidth=5 ;
+            //绑定鼠标按下时间
+            can.on("mousedown",function(e){
+                e.preventDefault();
+                ctx.strokeStyle=col;
+                x=e.offsetX;
+                y=e.offsetY;
+                //开始路径
+                ctx.beginPath();
+                ctx.moveTo(x,y);
+                //绑定鼠标移动事件
+                can.on("mousemove",function(e){
+                    var nx=event.offsetX;
+                        ny=event.offsetY;
+                    ctx.lineTo(x,y);
+                    ctx.stroke();
+                    x=nx;
+                    y=ny;
+                });
+                //绑定鼠标抬起事件
+                can.on("mouseup",function(e){
+                    //取消鼠标移动事件
+                    can.off("mousemove")
+                })
+            })
+        }
+        $(document).ready(function(){
+            initBrush();
+            initPainter();
+        });
+    </script>
+</body>
+</html>
